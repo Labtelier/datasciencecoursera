@@ -35,6 +35,22 @@ You should create one R script called run_analysis.R that does the following.
 
 
 
-
+##Process
+	Read activity and features labels
+	clean features because special charactere produce issues due to ()
+	Read test data
+	Read train data
+	Apply features labels to x_train and x_test columns name
+	Retrieve Mean and StDev labels
+	Subset X data on meanAndStd_Features
+	Merge y data with activity label
+	Rename y activites columns
+	Rename subject columns
+	Bind all columns together
+	merge dataset
+	melt columns in rows
+	Summarize melted data
+	remove activityId Column
+	Store data in a flat file
 
 
