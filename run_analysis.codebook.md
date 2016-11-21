@@ -4,6 +4,10 @@
 
 ##Prerequisits
 1. Set working directory to extracted data
+As it was requested.
+It wasn't requested to download the file and unzip it.
+(The code should have a file run_analysis.R in the main directory 
+that can be run as long as the Samsung data is in your working directory)
 
 ##Inputs
 	activity_labels.txt
@@ -11,27 +15,10 @@
 	test/subject_test.txt
 	test/X_test.txt
 	test/y_test.txt
-	test/Inertial Signals/body_acc_x_test.txt
-	test/Inertial Signals/body_acc_y_test.txt
-	test/Inertial Signals/body_acc_z_test.txt
-	test/Inertial Signals/body_gyro_x_test.txt
-	test/Inertial Signals/body_gyro_y_test.txt
-	test/Inertial Signals/body_gyro_z_test.txt
-	test/Inertial Signals/total_acc_x_test.txt
-	test/Inertial Signals/total_acc_y_test.txt
-	test/Inertial Signals/total_acc_z_test.txt
 	train/subject_train.txt
 	train/X_train.txt
 	train/y_train.txt
-	train/Inertial Signals/body_acc_x_train.txt
-	train/Inertial Signals/body_acc_y_train.txt
-	train/Inertial Signals/body_acc_z_train.txt
-	train/Inertial Signals/body_gyro_x_train.txt
-	train/Inertial Signals/body_gyro_y_train.txt
-	train/Inertial Signals/body_gyro_z_train.txt
-	train/Inertial Signals/total_acc_x_train.txt
-	train/Inertial Signals/total_acc_y_train.txt
-	train/Inertial Signals/total_acc_z_train.txt
+
 
 ##Process
 	Read activity and features labels
@@ -91,4 +78,4 @@ A matrice of mean and stddev for the following vector
 	fBodyGyroMag
 	fBodyGyroJerkMag
 
-value : Value corresponding to the tuple SubjectID/activityLabel/variable
+value : Value corresponding to the mean of the tuple SubjectID/activityLabel/variable
