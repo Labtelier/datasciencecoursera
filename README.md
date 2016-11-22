@@ -10,6 +10,12 @@ Johns Hopkins@Coursera Data Cleaning project submission
 - The README that explains the analysis files is clear and understandable.
 - The work submitted for this project is the work of the student who submitted it. I'm Benoit de TARADE-BENTINCK
 
+##Scripts :
+- run_analysis.R : Which response to my point of view of the requirement
+- run_analysis.withdownload.R : Whiche was modified to :
+	- Upload and unzip the source data
+	- produce two files tidy.txt and tidy.casted.txt
+
 ##Process
 	Read activity and features labels
 	clean features because special charactere produce issues due to ()
