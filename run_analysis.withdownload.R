@@ -42,23 +42,23 @@ unzip("getdata projectfiles UCI HAR Dataset.zip", overwrite = TRUE)
 
 
 ## Read activity and features labels
-activity_labels <- read.table("activity_labels.txt")
-features <- read.table('features.txt')
+activity_labels <- read.table("UCI HAR Dataset/activity_labels.txt")
+features <- read.table('UCI HAR Dataset/features.txt')
 
 
 ##clean features because special charactere produce issues due to ()
 cleanFeatures  <- gsub("[()]", "", features[,2])
 
 ##Read test data
-subject_test <- read.table("test/subject_test.txt")
-X_test <- read.table("test/X_test.txt")
-y_test <- read.table("test/y_test.txt")
+subject_test <- read.table("UCI HAR Dataset/test/subject_test.txt")
+X_test <- read.table("UCI HAR Dataset/test/X_test.txt")
+y_test <- read.table("UCI HAR Dataset/test/y_test.txt")
 
 
 ##Read train data
-subject_train <- read.table("train/subject_train.txt")
-X_train <- read.table("train/X_train.txt")
-y_train <- read.table("train/y_train.txt")
+subject_train <- read.table("UCI HAR Dataset/train/subject_train.txt")
+X_train <- read.table("UCI HAR Dataset/train/X_train.txt")
+y_train <- read.table("UCI HAR Dataset/train/y_train.txt")
 
 
 ##Apply features labels to x_train and x_test columns name
@@ -99,16 +99,21 @@ subjects <- rbind(subject_test.binded, subject_train.binded)
 ##melt columns in rows
 header <- c("subjectID", "activityId", "activityLabel")
 subjects.melted <- melt(subjects, id = header)
+subjects.melted <- subset(subjects.melted, select=-c(activityId))
 
 ##Summarize melted data
-groupsHeader <- c("subjectID", "activityId", "activityLabel", "variable")
+groupsHeader <- c("subjectID", "activityLabel", "variable")
 subjects.summary <- ddply(subjects.melted, groupsHeader, summarize, value=mean(value))
+subjects.summary.casted <- dcast(subjects.melted, subjectID + activityLabel ~ variable, mean)
 
-##remove activityId Column
-subjects.summary$activityId <- NULL
 
-subject.df <- as.data.frame(subjects.summary)
+subjects.summary.df <- as.data.frame(subjects.summary)
+subjects.summary.casted.df <- as.data.frame(subjects.summary.casted)
 
 #Store data in a flat file
-write.csv(subject.df, file = "tidy.txt", row.names = FALSE)
+write.csv(subjects.summary.df, file = "tidy.txt", row.names = FALSE)
+write.csv(subjects.summary.casted.df, file = "tidy.casted.txt", row.names = FALSE)
+
+
+
 
