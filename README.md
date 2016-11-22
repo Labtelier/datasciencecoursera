@@ -1,5 +1,4 @@
-Benoit de TARADE
-Johns Hopkins@Coursera Data Cleaning project submission
+Benoit de TARADE for Johns Hopkins@Coursera Data Cleaning project submission
 =======================================================
 
 
